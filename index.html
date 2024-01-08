@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://acdn.tinkoff.ru/params/common_front/resourses/icons/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+      rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тинькофф Образование</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-200">
+    <!-- Header -->
+    <header
+      class="container ml-auto mr-auto py-3.5 flex items-center justify-between px-3">
+      <h1 class="m-0 text-3xl font-bold">Todo app</h1>
+      <button
+        class="cursor-pointer border-none bg-yellow-500 rounded-md py-2 px-4 font-medium leading-normal text-lg show-create-modal-btn">
+        Добавить пост
+      </button>
+    </header>
+
+    <!-- Main content -->
+
+    <main class="py-16 container mx-auto px-3">
+      <section>
+        <ul class="flex flex-col post-list"></ul>
+      </section>
+    </main>
+
+    <!-- Create modal -->
+
+    <aside
+      class="modal-create absolute top-0 left-0 right-0 bottom-0 bg-black/30 hidden">
+      <form
+        action="POST"
+        class="w-10/12 mx-auto my-auto mt-10 bg-slate-200 p-5 text-center rounded-lg relative">
+        <h2 class="text-center text-3xl">Добавить новую задачу</h2>
+        <fieldset class="mt-3 flex flex-col gap-y-2.5">
+          <label for="input-id">Введите id создателя (от 1 до 10)</label>
+          <input
+            type="number"
+            id="input-id"
+            required
+            class="w-3/12 rounded-lg h-10 px-2.5 py-2 block my-auto" />
+          <label for="input-title">Введите название задачи</label>
+          <input
+            type="text"
+            id="input-title"
+            placeholder="Название задачи"
+            class="rounded-lg h-10 px-2.5 py-2 block my-auto" />
+          <label for="input-text">Введите описание задачи</label>
+          <textarea
+            id="input-text"
+            required
+            placeholder="Описание задачи"
+            class="resize-none rounded-lg h-24 px-2.5 py-2 block my-auto"></textarea>
+          <button
+            type="submit"
+            class="cursor-pointer border-none bg-yellow-500 rounded-md py-2 px-4 font-medium leading-normal text-lg">
+            Создать
+          </button>
+        </fieldset>
+        <div class="absolute top-3 right-3 cursor-pointer close-modal-create">
+          &#10060;
+        </div>
+      </form>
+    </aside>
+
+    <!-- Edit modal -->
+    <aside
+      class="modal-edit fixed top-0 left-0 right-0 bottom-0 bg-black/30 hidden">
+      <form
+        action="POST"
+        class="w-10/12 mx-auto my-auto mt-10 bg-slate-200 p-5 text-center rounded-lg relative edit-form">
+        <h2 class="text-center text-3xl">Редактировать</h2>
+        <fieldset class="mt-3 flex flex-col gap-y-2.5">
+          <label for="input-id">id создателя</label>
+          <input
+            type="number"
+            data-id="edit-user-id"
+            readonly
+            class="w-3/12 rounded-lg h-10 px-2.5 py-2 block my-auto" />
+          <label for="input-title">Введите название задачи</label>
+          <input
+            type="text"
+            data-id="edit-post-title"
+            placeholder="Название задачи"
+            class="rounded-lg h-10 px-2.5 py-2 block my-auto" />
+          <label for="input-text">Введите описание задачи</label>
+          <textarea
+            data-id="edit-post-body"
+            placeholder="Описание задачи"
+            class="resize-none rounded-lg h-24 px-2.5 py-2 block my-auto"></textarea>
+          <button
+            type="submit"
+            class="cursor-pointer border-none bg-yellow-500 rounded-md py-2 px-4 font-medium leading-normal text-lg">
+            Редактировать
+          </button>
+        </fieldset>
+        <div class="absolute top-3 right-3 cursor-pointer close-modal-btn-edit">
+          &#10060;
+        </div>
+      </form>
+    </aside>
+
+    <!-- Notification -->
+
+    <div class="bg-black p-1 absolute top-10 right-10 hidden notification">
+      <span class="text-white font-medium notification-text"></span>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
