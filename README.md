@@ -1,4 +1,4 @@
-# Empty vite template
+# AJAX Task
 
 Предварительно должны быть установлены git и nodejs(версия lts 16 и выше)
 - install node.js v16>(npm v7.x>) (https://nodejs.org/en/download/)
